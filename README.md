@@ -8,7 +8,7 @@ complaint letter, using details retrieved from a source-linked knowledge base in
 > Always verify authority names, helplines and rules on the official source before relying on them.
 > Please do not enter phone numbers or other personal details.
 
-**Live frontend:** `[paste your Vercel / Netlify link here]`
+**Live frontend:** `https://hari-aawaz.vercel.app`
 **Live backend API:** `[paste your Render URL here, or note if running via Colab tunnel]`
 
 ## The problem
