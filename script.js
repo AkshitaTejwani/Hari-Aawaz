@@ -2,7 +2,8 @@
 const USE_MOCK = false;
 
 // 👇 PASTE YOUR COLAB TRYCLOUDFLARE URL HERE (keep /api/complaint at the end)
-const API_URL = "https://fwd-vsnet-managed-rogers.trycloudflare.com/api/complaint";
+const DEFAULT_API = "https://fwd-vsnet-managed-rogers.trycloudflare.com/api/complaint";
+const API_URL = new URLSearchParams(location.search).get("api") || DEFAULT_API;
 
 // Grab the elements we need from the page
 const button = document.querySelector("button");
