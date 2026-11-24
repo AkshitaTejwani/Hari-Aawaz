@@ -1,0 +1,101 @@
+[
+  {
+    "id": "complaint_1",
+    "issue": "Garbage dumping and uncollected municipal solid waste",
+    "keywords": ["कचरा", "कूड़ा", "सफाई", "kachra", "solid waste", "overflowing dustbin", "safai"],
+    "authority": "Nagar Nigam Jaipur (JMC) - Deputy Commissioner (Health)",
+    "submit_via": "JMC Helpline 0141-2747400, 'Jaipur Samadhan' app, or http://jaipurmc.org",
+    "rule": "Solid Waste Management Rules, 2026 & Rajasthan Municipalities Act, 2009",
+    "escalate_to": "Commissioner JMC (0141-2740510, commissioner.jmc@rajasthan.gov.in)",
+    "source": "http://jaipurmc.org",
+    "verified_date": "23-11-2026"
+  },
+  {
+    "id": "complaint_2",
+    "issue": "Construction and demolition (C&D) waste dumping or malba accumulation",
+    "keywords": ["C&D waste", "malba", "construction debris", "rubble"],
+    "authority": "Rajasthan State Pollution Control Board (RSPCB)",
+    "submit_via": "Rajasthan Sampark Portal (https://rajasthan.gov.in)",
+    "rule": "Construction and Demolition Waste Management Rules, 2016",
+    "escalate_to": "Rajasthan Sampark Helpline 181",
+    "source": "https://rajasthan.gov.in",
+    "verified_date": "23-11-2026"
+  },
+  {
+    "id": "complaint_3",
+    "issue": "Waste and open garbage burning",
+    "keywords": ["कचरा जलाना", "धुआँ", "kachra jalana", "dry leaves burning", "plastic burning", "smoke"],
+    "authority": "Rajasthan State Pollution Control Board (RSPCB)",
+    "submit_via": "Rajasthan Sampark Portal (https://rajasthan.gov.in)",
+    "rule": "Solid Waste Management Rules, 2026 & Air Act, 1981",
+    "escalate_to": "Rajasthan Sampark Helpline 181 (0141-2922272)",
+    "source": "https://rajasthan.gov.in",
+    "verified_date": "23-11-2026"
+  },
+  {
+    "id": "complaint_4",
+    "issue": "Drinking water supply leakage, pipeline burst, or water wastage",
+    "keywords": ["पानी लीक", "पाइपलाइन फट गई", "paani leak", "pipeline burst", "water wastage"],
+    "authority": "Public Health Engineering Department (PHED) Rajasthan - Jaipur Control Room",
+    "submit_via": "Jaipur District Control Room (0141-2706624) or PHED State Control Room (0141-2222585)",
+    "rule": "not available",
+    "escalate_to": "Chief Engineer PHED Jaipur (0141-2222053, rj_cehq@nic.in)",
+    "source": "https://rajasthan.gov.in",
+    "verified_date": "24-11-2026"
+  },
+  {
+    "id": "complaint_5",
+    "issue": "Sewer overflow, choked drains, and dirty water stagnation",
+    "keywords": ["सीवर", "नाली", "गंदा पानी", "sewer overflow", "drainage blockage", "sewage leak"],
+    "authority": "Nagar Nigam Jaipur (JMC) - Superintending Engineer (Sewer Project)",
+    "submit_via": "JMC Call Centre (0141-2747400) or 'Jaipur Samadhan' app",
+    "rule": "Rajasthan Municipalities Act, 2009 & Water Act, 1974",
+    "escalate_to": "JMC Control Room (0141-2742900)",
+    "source": "http://jaipurmc.org",
+    "verified_date": "23-11-2026"
+  },
+  {
+    "id": "complaint_6",
+    "issue": "Illegal tree cutting, felling, or damage to forest trees",
+    "keywords": ["पेड़ कटाई", "ped katna", "tree cutting", "illegal tree felling"],
+    "authority": "Forest Department, Government of Rajasthan",
+    "submit_via": "Rajasthan Sampark Portal (https://rajasthan.gov.in) or Helpline 181",
+    "rule": "The Rajasthan Forest Act, 1953 and Rajasthan Forest Policy 2023",
+    "escalate_to": "Department of Public Grievances, Jaipur (0141-2922825)",
+    "source": "https://rajasthan.gov.in",
+    "verified_date": "24-11-2026"
+  },
+  {
+    "id": "complaint_7",
+    "issue": "Destruction of local biodiversity, heritage sites, or wildlife habitats",
+    "keywords": ["biodiversity damage", "sacred grove", "heritage trees", "wildlife disturbance"],
+    "authority": "Rajasthan State Biodiversity Board, Jaipur",
+    "submit_via": "Phone: 0141-2362188, Email: rajsbb@rajasthan.gov.in",
+    "rule": "Biological Diversity Act, 2002 and Rajasthan Biological Diversity Rules, 2010",
+    "escalate_to": "Rajasthan Sampark Portal (https://rajasthan.gov.in)",
+    "source": "https://rajasthan.gov.in",
+    "verified_date": "24-11-2026"
+  },
+  {
+    "id": "complaint_8",
+    "issue": "Noise pollution and industrial or vehicular air pollution",
+    "keywords": ["शोर", "लाउडस्पीकर", "प्रदूषण", "loudspeaker", "DJ noise", "factory smoke", "air pollution"],
+    "authority": "Rajasthan State Pollution Control Board (RSPCB)",
+    "submit_via": "Rajasthan Sampark Portal (https://rajasthan.gov.in)",
+    "rule": "Noise Pollution Rules, 2000 & Air Act, 1981",
+    "escalate_to": "Rajasthan Sampark Helpline 181 (0141-2922272)",
+    "source": "https://rajasthan.gov.in",
+    "verified_date": "23-11-2026"
+  },
+  {
+    "id": "complaint_9",
+    "issue": "General civic or environmental grievance escalation when no action is taken",
+    "keywords": ["unresolved complaint", "no action", "sunwai nahi hui", "escalation", "shikayat"],
+    "authority": "Department of Public Grievances, Government of Rajasthan (Rajasthan Sampark)",
+    "submit_via": "Rajasthan Sampark Portal, Helpline 181, or Email rajsampark@rajasthan.gov.in",
+    "rule": "not available",
+    "escalate_to": "Director of Public Grievances, Secretariat Jaipur (0141-2922825)",
+    "source": "https://rajasthan.gov.in",
+    "verified_date": "24-11-2026"
+  }
+]
