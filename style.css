@@ -1,0 +1,226 @@
+/* Hari Awaaz – clean green & white theme, centred layout, mobile-friendly */
+
+/* Basic reset and a calm, environment-themed color palette */
+* { box-sizing: border-box; }
+
+body {
+  font-family: system-ui, Arial, sans-serif;
+  margin: 0;
+  padding: 24px;
+  background: #f0f7f2;
+  color: #1f3b2d;
+  line-height: 1.5;
+}
+
+/* Centered, readable column on larger screens */
+.wrap {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* Main page heading */
+h1 {
+  margin-bottom: 8px;
+  font-size: 1.75rem;
+}
+
+/* One-line explanation under the heading */
+.intro {
+  margin: 0 0 24px 0;
+  font-size: 1rem;
+  color: #3c5a48;
+}
+
+/* Large text box where the complaint is typed */
+textarea {
+  width: 100%;
+  height: 200px;
+  padding: 14px;
+  font-size: 1rem;
+  border: 1px solid #c7dccd;
+  border-radius: 12px;
+  resize: vertical;
+  font-family: inherit;
+  background: #ffffff;
+}
+
+textarea:focus {
+  outline: 2px solid #2e7d52;
+  outline-offset: 1px;
+}
+
+/* Labels for the location field and language selector */
+label {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #3c5a48;
+}
+
+input[type="text"],
+select {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 10px 12px;
+  font: inherit;
+  color: #1f3b2d;
+  background: #ffffff;
+  border: 1px solid #c7dccd;
+  border-radius: 10px;
+}
+
+input[type="text"]:focus,
+select:focus {
+  outline: 2px solid #2e7d52;
+  outline-offset: 1px;
+}
+
+/* The "Get Help" button */
+button {
+  margin-top: 16px;
+  padding: 12px 28px;
+  font-size: 1.05rem;
+  color: #ffffff;
+  background: #2e7d52;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover { background: #256b45; }
+
+/* Small disclaimer footer at the bottom of the page */
+footer {
+  margin-top: 32px;
+  font-size: 0.8rem;
+  color: #5f7a6b;
+  border-top: 1px solid #c7dccd;
+  padding-top: 12px;
+}
+
+/* Mobile-friendly adjustments for small screens */
+@media (max-width: 480px) {
+  body { padding: 16px; }
+  h1 { font-size: 1.5rem; }
+  textarea { height: 160px; }
+  button {
+    width: 100%;
+    padding: 14px;
+  }
+  .result-card { padding: 16px; }
+  .result-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
+/* Result card shown after "Get Help" is clicked */
+.result-card {
+  margin-top: 24px;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid #c7dccd;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(31, 59, 45, 0.08);
+}
+
+/* Row holding the category and urgency badges */
+.result-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+/* Base badge style */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+/* Category badge – green */
+.badge-category {
+  background: #e3f2ea;
+  color: #2e7d52;
+}
+
+/* Urgency badges – colour-coded by severity */
+.badge-high { background: #fde8e8; color: #c62828; }
+.badge-medium { background: #fff4e0; color: #b36b00; }
+.badge-low { background: #e3f2ea; color: #2e7d52; }
+
+/* Each labelled field inside the card */
+.result-field {
+  margin: 10px 0;
+  font-size: 0.95rem;
+  color: #1f3b2d;
+}
+
+.result-field a {
+  color: #2e7d52;
+  word-break: break-all;
+}
+
+/* Box that holds the drafted complaint letter */
+.letter-box {
+  margin-top: 16px;
+  background: #f6faf7;
+  border: 1px solid #d4e6da;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+/* Header row inside the letter box: label on the left, copy button on the right */
+.letter-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.letter-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #3c5a48;
+}
+
+/* Small inline copy button */
+.copy-btn {
+  padding: 4px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #2e7d52;
+  background: #e3f2ea;
+  border: 1px solid #c7dccd;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 0;
+  transition: background 0.2s ease;
+}
+
+.copy-btn:hover {
+  background: #d0e8db;
+}
+
+.letter-box pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: inherit;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #1f3b2d;
+}
+
+/* Friendly message shown when the complaint box is empty */
+.empty-message {
+  margin-top: 16px;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  color: #8a5a00;
+  background: #fff4e0;
+  border: 1px solid #f0d99a;
+  border-radius: 8px;
+}
