@@ -32,12 +32,15 @@
       placeholder="अपनी शिकायत यहाँ लिखें... (Hindi, English, or Hinglish)"
       aria-label="Complaint text"></textarea>
     
-    <div style="margin:6px 0 12px;">
-      <select id="micLang" aria-label="Speech language">
+    <div style="display:flex; gap:8px; align-items:center; margin:6px 0 12px;">
+      <select id="micLang" aria-label="Speech language" style="width:auto;">
         <option value="hi-IN">Speak in Hindi</option>
         <option value="en-IN">Speak in English</option>
       </select>
-      <button type="button" id="micBtn">🎤 Speak</button>
+      <span id="micBtn" role="button" tabindex="0"
+        style="background:#2e7d4f;color:#fff;padding:12px 20px;border-radius:10px;cursor:pointer;display:inline-block;user-select:none;">
+        🎤 Speak
+      </span>
     </div>
 
     <label for="location-input">Location / Landmark (Jaipur)</label>
