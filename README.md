@@ -1,4 +1,4 @@
-# Hari Awaaz - Environmental Complaint Helper (Jaipur)
+# Hari Aawaz - Environmental Complaint Helper (Jaipur)
 
 A Hindi / English / Hinglish assistant that helps a citizen turn a text or voice description of an environmental problem (garbage dumping, waste burning, water leakage, tree cutting, noise/air pollution, C&D waste, sewer overflow, biodiversity harm, or unresolved grievance escalation) into a ready-to-submit complaint letter, using details retrieved from a source-linked knowledge base instead of the model's memory.
 
