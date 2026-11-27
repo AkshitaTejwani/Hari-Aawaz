@@ -6,15 +6,10 @@ A Hindi / English / Hinglish assistant that helps a citizen turn a description o
 > Always verify authority names, helplines, and rules on the official source before relying on them.
 > Please do not enter phone numbers or other personal details.
 
-**Live frontend:** `https://hari-aawaz.vercel`
-
-**Backend API:** Runs via Google Colab + Cloudflare Quick Tunnel (see setup instructions below)
-https://hari-aawaz.vercelapi=[cloudflare tunnel link generated in colab]
-
 **Live frontend:** `https://hari-aawaz.vercel.app`
 
 **Backend API:** Runs via Google Colab + Cloudflare Quick Tunnel (see setup instructions below):
-`https://hari-aawaz.vercel.app/?api=[cloudflare tunnel link generated in colab]`
+`https://hari-aawaz.vercel.app/?api=[cloudflare-tunnel-link-generated-in-colab]`
 
 
 ## The problem
