@@ -6,7 +6,7 @@ const DEFAULT_API = "https://fwd-vsnet-managed-rogers.trycloudflare.com/api/comp
 const API_URL = new URLSearchParams(location.search).get("api") || DEFAULT_API;
 
 // Grab the elements we need from the page
-const button = document.querySelector("button");
+const button = document.querySelector("button:not(#micBtn)");
 const textarea = document.querySelector("textarea");
 const landmarkInput = document.querySelector("input"); // Grab your new landmark input
 const languageSelect = document.querySelector("select"); // Grab your language dropdown
@@ -162,3 +162,20 @@ button.addEventListener("click", () => {
       });
   }
 });
+(function () {
+  const micBtn = document.getElementById('micBtn');
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!micBtn) return;
+  if (!SR) { micBtn.parentElement.style.display = 'none'; return; }
+  const rec = new SR();
+  micBtn.onclick = () => {
+    rec.lang = document.getElementById('micLang').value;
+    try { rec.start(); } catch (e) {}
+    micBtn.textContent = '🎙 Listening...';
+  };
+  rec.onresult = e => {
+    const box = document.getElementById('complaint-input');
+    box.value += (box.value ? ' ' : '') + e.results[0][0].transcript;
+  };
+  rec.onend = rec.onerror = () => { micBtn.textContent = '🎤 Speak'; };
+})();
