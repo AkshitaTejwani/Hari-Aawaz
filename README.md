@@ -9,7 +9,7 @@ A Hindi / English / Hinglish assistant that helps a citizen turn a description o
 **Live frontend:** `https://hari-aawaz.vercel`
 
 **Backend API:** Runs via Google Colab + Cloudflare Quick Tunnel (see setup instructions below)
-**https://hari-aawaz.vercelapi=[cloudflare tunnel link generated in colab]
+https://hari-aawaz.vercelapi=[cloudflare tunnel link generated in colab]
 
 ## The problem
 Citizens often do not know which authority handles an environmental problem, how to submit a complaint, or what to do if nothing happens. General chatbots can answer, but they may give outdated or invented contact details. This project grounds every answer in collected official sources, injects deterministic submission metadata (landmark + live IST timestamp), and shows where each detail came from.
