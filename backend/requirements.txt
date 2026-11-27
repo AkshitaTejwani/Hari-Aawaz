@@ -1,0 +1,6 @@
+flask
+flask-cors
+gunicorn
+chromadb
+sentence-transformers
+google-genai
