@@ -28,8 +28,17 @@
 
     <!-- Large text box: type the complaint in Hindi, English, or Hinglish -->
     <textarea
+      id="complaint-input"
       placeholder="अपनी शिकायत यहाँ लिखें... (Hindi, English, or Hinglish)"
       aria-label="Complaint text"></textarea>
+    
+    <div style="margin:6px 0 12px;">
+      <select id="micLang" aria-label="Speech language">
+        <option value="hi-IN">Speak in Hindi</option>
+        <option value="en-IN">Speak in English</option>
+      </select>
+      <button type="button" id="micBtn">🎤 Speak</button>
+    </div>
 
     <label for="location-input">Location / Landmark (Jaipur)</label>
     <input type="text" id="location-input" placeholder="e.g., Near Central Park Gate 2, C-Scheme / Ward 45" />
