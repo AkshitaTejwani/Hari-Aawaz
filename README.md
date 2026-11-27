@@ -1,6 +1,6 @@
 # Hari Awaaz - Environmental Complaint Helper (Jaipur)
-**Live frontend:** `https://hari-aawaz.vercel.app`
-**Backend API:** Runs via Google Colab + Cloudflare Quick Tunnel (see instructions below)
+
+
 
 A Hindi / English / Hinglish assistant that helps a citizen turn a description of an environmental problem
 (garbage dumping, waste burning, water leakage, tree cutting, noise/air pollution, C&D waste, sewer overflow, biodiversity harm) into a ready-to-submit
@@ -11,7 +11,7 @@ complaint letter, using details retrieved from a source-linked knowledge base in
 > Please do not enter phone numbers or other personal details.
 
 **Live frontend:** `https://hari-aawaz.vercel.app`
-**Live backend API:** `[paste your Render URL here, or note if running via Colab tunnel]`
+**Backend API:** Runs via Google Colab + Cloudflare Quick Tunnel (see instructions below)
 
 ## The problem
 Citizens often do not know which authority handles an environmental problem, how to submit a complaint, or what to do
