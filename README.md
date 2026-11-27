@@ -1,6 +1,6 @@
 # Hari Awaaz - Environmental Complaint Helper (Jaipur)
 
-A Hindi / English / Hinglish assistant that helps a citizen turn a description of an environmental problem (garbage dumping, waste burning, water leakage, tree cutting, noise/air pollution, C&D waste, sewer overflow, biodiversity harm, or unresolved grievance escalation) into a ready-to-submit complaint letter, using details retrieved from a source-linked knowledge base instead of the model's memory.
+A Hindi / English / Hinglish assistant that helps a citizen turn a text or voice description of an environmental problem (garbage dumping, waste burning, water leakage, tree cutting, noise/air pollution, C&D waste, sewer overflow, biodiversity harm, or unresolved grievance escalation) into a ready-to-submit complaint letter, using details retrieved from a source-linked knowledge base instead of the model's memory.
 
 > **Prototype for a Prompt Engineering capstone project.** It is not an official government service.
 > Always verify authority names, helplines, and rules on the official source before relying on them.
@@ -9,15 +9,14 @@ A Hindi / English / Hinglish assistant that helps a citizen turn a description o
 **Live frontend:** `https://hari-aawaz.vercel.app`
 
 **Backend API:** Runs via Google Colab + Cloudflare Quick Tunnel (see setup instructions below):
-`https://hari-aawaz.vercel.app/?api=[cloudflare-tunnel-link-generated-in-colab]`
-
+`https://hari-aawaz.vercel.app/?api=https://<cloudflare_tunnel_from_colab>://`
 
 ## The problem
 Citizens often do not know which authority handles an environmental problem, how to submit a complaint, or what to do if nothing happens. General chatbots can answer, but they may give outdated or invented contact details. This project grounds every answer in collected official sources, injects deterministic submission metadata (landmark + live IST timestamp), and shows where each detail came from.
 
 ## How it works
 ```text
-Citizen text + Landmark + Language + Live IST Timestamp
+Citizen text / Web Speech voice input + Landmark + Language + Live IST Timestamp
   --> 1. Multilingual Vector Retrieval (ChromaDB + paraphrase-multilingual-MiniLM-L12-v2, n_results=3)
   --> 2. Grounded Selection & Letter Drafting (Gemini, JSON schema output, temp=0.2)
   --> 3. Structured JSON Response --> Web UI
@@ -25,8 +24,8 @@ Citizen text + Landmark + Language + Live IST Timestamp
 
 | Part | What it is |
 |---|---|
-| Frontend | HTML, CSS, and JavaScript web app (`https://vercel.app`) with complaint box, optional Jaipur landmark input, letter language selector (`English` / `Hindi`), and automatic `Asia/Kolkata` IST timestamp capture |
-| Backend | Flask API (`/api/complaint`) served from Google Colab via a live `pycloudflared` quick tunnel |
+| Frontend | HTML, CSS, and JavaScript web app (`https://vercel.app`) with complaint box, Hindi/English Web Speech voice input (`🎤 Speak`), optional Jaipur landmark input, letter language selector (`English` / `Hindi`), and automatic `Asia/Kolkata` IST timestamp capture |
+| Backend | Flask API (`/api/complaint`) served from Google Colab on port `5004` via a live `pycloudflared` quick tunnel |
 | Retrieval | In-memory ChromaDB (`paraphrase-multilingual-MiniLM-L12-v2`) with focused English, Devanagari Hindi, and Hinglish search strings mapped to 9 verified Jaipur government metadata entries |
 | LLM | Google Gemini through the `google-genai` SDK, with exponential backoff retry and model fallback (`gemini-3.5-flash-lite` -> `gemini-3.8-flash`) |
 
@@ -53,10 +52,22 @@ LICENSE
 ```
 
 ## Running it (Google Colab Demo)
-1. Open `notebook/Hari_Aawaz_Final.ipynb` in Google Colab.
-2. In Colab's left sidebar, open **Secrets (🔑)** and add your own Gemini API key with the name `GEMINI_API_KEY` (no private keys are stored in this repository).
-3. Run all cells in order. The Flask server cell starts the API and prints a live `https://<random-subdomain>://` URL.
-4. Paste that printed URL into `API_URL` in `frontend/script.js` (or your Vercel environment configuration) to connect the frontend to the live Colab backend.
+Because the backend runs an in-memory ChromaDB vector store and multilingual embedding model on temporary compute, follow these steps to spin up the RAG server and connect it to the live Vercel frontend:
+
+1. Open `notebook/Hari_Aawaz_Final.ipynb` in Google Colab *(or [launch directly in Colab](YOUR_COLAB_SHARE_LINK))*.
+2. In Colab's left sidebar, open **Secrets (🔑)**, add a new secret named `GEMINI_API_KEY` with your own Gemini API key, and toggle **Notebook access** ON *(no private keys are stored in this repository)*.
+3. Click **Runtime → Run all** (or run Cells 1 through 10 in order).
+4. In the output of the **Flask + Cloudflare Tunnel cell (Cell 10)**, look for the printed live endpoint URL (note that `/api/complaint` at the end is required):
+   ```text
+   ✅ NEW LIVE API URL:
+   https://<random-subdomain>://
+   ```
+5. Copy that **entire URL** (including `/api/complaint`) and append it to the live Vercel frontend using the `?api=` parameter in your browser:
+   ```text
+   https://vercel.app/?api=https://<random-subdomain>://
+   ```
+
+> **Note:** Keep the Google Colab tab open while testing so the in-memory ChromaDB index and Cloudflare tunnel stay active. If the runtime disconnects, re-run the server cell to generate a fresh tunnel URL.
 
 ## Knowledge base
 Each entry contains an issue category with English/Hindi/Hinglish keywords, responsible authority, submission channels, governing rule/Act, escalation path, and **an official source link with the date verified (23–24 Nov 2026)**.
@@ -82,7 +93,7 @@ Entries were manually verified against official Rajasthan and Indian government 
 - Drafts a ready-to-submit letter only; does not directly file, store, or track complaints on government portals.
 
 ## Future scope
-Add Jaipur ward-level sub-routing (mapping wards to zonal offices), persistent vector database storage, and multimodal image/voice input for geotagged photo evidence.
+Add Jaipur ward-level sub-routing (mapping wards to zonal offices), persistent vector database storage, and multimodal image input for geotagged photo evidence.
 
 ## AI tools used
 Frontend first draft: Bolt.new. Code assistance, RAG integration, and prompt refinement: Gemini and Claude. All prompt iterations and fixes are recorded in `docs/prompt_log`.
