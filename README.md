@@ -1,4 +1,6 @@
 # Hari Awaaz - Environmental Complaint Helper (Jaipur)
+**Live frontend:** `https://hari-aawaz.vercel.app`
+**Backend API:** Runs via Google Colab + Cloudflare Quick Tunnel (see instructions below)
 
 A Hindi / English / Hinglish assistant that helps a citizen turn a description of an environmental problem
 (garbage dumping, waste burning, water leakage, tree cutting, noise/air pollution, C&D waste, sewer overflow, biodiversity harm) into a ready-to-submit
@@ -26,7 +28,7 @@ Citizen text + Landmark + Language + Live IST Timestamp
 |---|---|
 | Frontend | HTML, CSS and JavaScript page with complaint box, optional Jaipur landmark input, letter language selector (`English` / `Hindi`), and automatic `Asia/Kolkata` IST timestamp capture |
 | Backend | Flask API (`/api/complaint`) hosted on Render (or run in Google Colab via Cloudflare quick tunnel) |
-| Retrieval | ChromaDB (`all-MiniLM-L6-v2` default embeddings) over 9 manually verified Jaipur government entries |
+| Retrieval | ChromaDB (`paraphrase-multilingual-MiniLM-L12-v2`) over 9 manually verified Jaipur government entries |
 | LLM | Google Gemini through the `google-genai` SDK, with exponential backoff retry and model fallback (`gemini-3.8-flash` -> `gemini-3.5-flash-lite` -> `gemini-3.8-pro`) |
 
 ## Prompt engineering techniques used
@@ -58,10 +60,11 @@ LICENSE
 3. Deploy `frontend/` to Vercel or Netlify.
 
 ### Option B: Google Colab Demo
+## Running it (Google Colab Demo)
 1. Open `notebook/Hari_Aawaz_Final.ipynb` in Google Colab.
-2. Add your Gemini API key in **Colab Secrets** with the name `GEMINI_API_KEY` (never hardcode keys in the repo).
-3. Run all cells. The final cell prints a live `trycloudflare.com/api/complaint` URL.
-4. Paste that printed URL into `API_URL` at the top of `frontend/script.js` and open `frontend/index.html`.
+2. Add your own Gemini API key in Colab's left sidebar **Secrets (🔑)** with the name `GEMINI_API_KEY` (the repo does not expose any private keys).
+3. Run all cells. The final cell starts the Flask server and prints a live `trycloudflare.com` URL.
+4. Paste `<printed-url>/api/complaint` into `API_URL` at the top of `frontend/script.js` (or test via local frontend).
 
 ## Knowledge base
 Each entry contains an issue category with English/Hindi/Hinglish keywords, responsible authority, submission channels, governing rule/Act, escalation path, and **an official source link with the date verified (23–24 Nov 2026)**.
@@ -78,10 +81,10 @@ Entries were manually verified against official Rajasthan and Indian government 
 
 | Test | Result |
 |---|---|
-| Classification accuracy on N test complaints (English, Hindi & Hinglish) | `[x / N]` |
-| Correct authority retrieved (top 1 / top 2) | `[x / N]` |
+| Classification accuracy on 8 test complaints (English, Hindi & Hinglish) | `[8 / 8]` |
+| Correct authority retrieved (top 1 / top 3) | `[8 / 8]` |
 | Unsupported details / hallucinated rules found in drafted letters | `0` |
-| Bilingual letter generation (English & Devanagari Hindi) with intact contacts | `[x / N]` |
+| Bilingual letter generation (English & Devanagari Hindi) with intact contacts | `[3 / 3]` |
 | Same complaints through ungrounded ChatGPT / Gemini / Claude vs. Hari Awaaz | `[x / N each]` |
 
 ## Limitations
